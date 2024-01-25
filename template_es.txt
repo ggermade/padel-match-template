@@ -1,0 +1,147 @@
+data:date_field:Fecha del partido
+data:text:Nombre Rival 1 (Revés / Lado Izquierdo)
+data:text:Nombre Rival 2 (Drive / Lado Derecho)
+data:radio:Resultado
+
+
+
+
+Toma de datos
+
+Fecha
+
+
+Rivales
+
+
+Resultado
+
+
+
+
+
+Pre-Partido
+
+Calentamiento y peloteo
+
+
+¿Has tenido algo de tiempo para tí, para enfocarte en el partido y concentrarte? 
+
+
+¿Has podido calentar físicamente antes de entrar?
+
+
+¿Conocías a los rivales y llevabas una estrategia predeterminada? 
+
+
+¿Has hablado con tu pareja antes del partido y os habéis planteado cómo jugar?
+
+
+¿Cómo te ha ido en el peloteo? ¿Qué sensaciones físicas y en tus golpes has tenido? 
+
+
+Antes de comenzar el partido, ¿has hablado con tu pareja sobre cómo estaban en el peloteo vuestros rivales?
+
+
+En el Partido
+
+
+ A nivel físico
+
+
+¿Cómo te has encontrado durante el partido?
+
+
+¿Estabas cansado/a? 
+
+
+¿Estabas rápido/a y con buenas sensaciones? 
+
+
+¿Has notado que te ha faltado resistencia o velocidad de reacción en algún momento del partido?
+
+
+Si no has estado como te gustaría, ¿qué has intentado para cambiarlo?
+
+
+A nivel mental-emocional
+
+
+¿Has mantenido durante todo el partido tu atención y concentración?
+
+
+Si en algún momento la has perdido, ¿has sido consciente pronto y has sabido reconducirte?
+
+
+¿Cómo ha sido tu actitud? 
+
+
+¿Cuáles han sido tus pensamientos? 
+
+
+
+
+¿Te has dejado llevar por la frustración o la ansiedad?
+
+
+Si ha sido así, ¿qué has hecho para salir de ahí?
+
+
+Sabes las  sensaciones que tienes cuando juegas bien y estás a gusto en la pista. En los días en los que no tienes esas sensaciones, ¿qué haces para conseguirlas?
+
+
+¿Qué has pensado en los cambios de lado? 
+
+
+¿Con qué sensación has salido del partido?
+
+
+A nivel de juego (técnico-táctico-estratégico)
+
+
+¿Qué nivel tenían tus rivales? ¿eran superiores a vosotros? ¿similares? ¿inferiores?
+
+
+¿Alguno de vuestros rivales era mejor o hacía más daño?
+
+
+¿Cómo habéis estado en la defensa? 
+
+
+¿Habéis provocado bolas para intentar ganar la red? 
+
+
+¿Habéis jugado a sus zonas más incómodas? 
+
+
+
+
+¿Habéis estado más tiempo en la red que vuestros rivales? 
+
+
+¿Perdíais la red con facilidad? 
+
+
+¿Llegaban bolas para definir después de trabajar el punto?
+
+
+¿Cómo han ido vuestros juegos con saque? ¿Cuántos juegos con saque habéis perdido?
+
+
+¿Y vuestros juegos al resto? ¿habéis conseguido romper el servicio de vuestros rivales alguna vez?
+
+
+Cuando algo no salía, ¿hablabas con tu compañero para tratar de hacer otras cosas?
+
+
+¿Crees que habéis seguido la estrategia adecuada? 
+
+
+Si no ha sido así, ¿qué cambios crees que tendríais que haber hecho?. Es decir, si volvieras a jugar este partido, ¿qué cambios harías?
+
+
+¿Qué estrategia han seguido tus rivales?
+
+
+¿Por qué crees que han ganado?
+
