@@ -1,6 +1,6 @@
 import streamlit as st
 
-from utils import translation as tl
+from utils.translation import Translation
 
 
 def is_user_logged_in() -> bool:
@@ -9,19 +9,23 @@ def is_user_logged_in() -> bool:
 def set_user_logged_in(value: bool) -> None:
     st.session_state["user_logged_in"] = value
 
-def show_login_page() -> None:
+def login_page(tl: Translation) -> None:
     st.header(tl.LOGIN_TITLE)
-    username = st.text_input(tl.USERNAME)
-    password = st.text_input(tl.PASSWORD, type="password")
-    login_button = st.button(tl.LOGIN_BUTTON)
-    
-    if login_button:
-        if username == "admin" and password == "123":
-            st.success("Logged in as admin")
-            set_user_logged_in(True)
-            st.rerun()
-        else:
-            st.error("Incorrect username or password")
+
+    with st.form(key="login-form", border=False):
+        username = st.text_input(tl.USERNAME)
+        password = st.text_input(tl.PASSWORD, type="password")
+        
+        if st.form_submit_button(tl.LOGIN_BUTTON):
+            if username == "admin" and password == "123":
+                st.success("Logged in as admin")
+                set_user_logged_in(True)
+            else:
+                st.error("Incorrect username or password")
+                set_user_logged_in(False)
+    if is_user_logged_in():
+        st.balloons()
+        st.rerun()
 
 def logout() -> None:
     set_user_logged_in(False)
