@@ -7,6 +7,7 @@ LOGIN_TITLE = {"en": "Login", "es": "Inicio de Sesión"}[lang]
 USERNAME = {"en": "Username", "es": "Nombre de Usuario"}[lang]
 PASSWORD = {"en": "Password", "es": "Contraseña"}[lang]
 LOGIN_BUTTON = {"en": "Log in", "es": "Iniciar Sesión"}[lang]
+LOGOUT_BUTTON = {"en": "Log out", "es": "Cerrar Sesión"}[lang]
 
 #### MAIN ####
 MAIN_TITLE = {

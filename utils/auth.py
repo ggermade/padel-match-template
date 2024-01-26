@@ -19,5 +19,10 @@ def show_login_page() -> None:
         if username == "admin" and password == "123":
             st.success("Logged in as admin")
             set_user_logged_in(True)
+            st.rerun()
         else:
             st.error("Incorrect username or password")
+
+def logout() -> None:
+    set_user_logged_in(False)
+    st.rerun()
