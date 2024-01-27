@@ -3,7 +3,7 @@ import streamlit as st
 from questions import post_match_form
 from utils.auth import is_user_logged_in, login_page, logout
 from utils.config import get_language
-from utils.fmt import br
+from utils.fmt import br, h1
 from utils.translation import Translation
 
 st.set_page_config(
@@ -41,7 +41,7 @@ def main():
         login_page(tl=tl)
 
     else:
-        st.header(tl.QUESTIONNAIRE_TITLE)
+        h1(tl.QUESTIONNAIRE_TITLE)
         post_match_form(tl)
                 
 if __name__ == "__main__":

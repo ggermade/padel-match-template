@@ -12,7 +12,8 @@ def h1(text: str) -> None:
     Args:
         text (str): Title text.
     """
-    st.markdown(f"<h1>{text}</h1>", unsafe_allow_html=True)
+    # center the title
+    st.markdown(f"<h1 style='text-align: center;'>{text}</h1>", unsafe_allow_html=True)
 
 
 def h2(text: str) -> None:
@@ -30,7 +31,7 @@ def h3(text: str) -> None:
     Args:
         text (str): Title text.
     """
-    st.markdown(f"<h3>{text}</h3>", unsafe_allow_html=True)
+    st.markdown(f"<h3 style='text-align: center;'>{text}</h3>", unsafe_allow_html=True)
 
 
 def h4(text: str) -> None:
