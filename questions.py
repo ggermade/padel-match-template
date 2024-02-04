@@ -2,7 +2,7 @@ import enum
 
 import streamlit as st
 
-from utils.fmt import h3, hr
+from utils.fmt import h1, h3, hr
 from utils.translation import Translation
 
 
@@ -38,8 +38,8 @@ mental_emotional_questions = []
 technical_questions = []
 
 
-# Step 5: Display the questionnaire to the user
 def post_match_form(tl: Translation):
+    h1(tl.QUESTIONNAIRE_TITLE)
     with st.form(key="post-match-form"):
         
         h3(tl.DATA_COLLECTION_TITLE)
@@ -171,7 +171,7 @@ def technical_questions(tl: Translation):
     st.radio("", tl.TECHNICAL_8_OPTIONS, key="technical_8", horizontal=True, label_visibility="collapsed")
 
     st.write(tl.TECHNICAL_9)
-    st.slider("", min_value=0, max_value=5, value=0, key="technical_9", label_visibility="collapsed")
+    st.number_input("", min_value=0, value=0, key="technical_9", label_visibility="collapsed")
 
     st.write(tl.TECHNICAL_10)
     st.radio("", tl.TECHNICAL_10_OPTIONS, key="technical_10", horizontal=True, label_visibility="collapsed")

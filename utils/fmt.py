@@ -6,32 +6,34 @@ def hr() -> None:
     st.markdown("***")
 
 
-def h1(text: str) -> None:
+def h1(text: str, align: str = "center") -> None:
     """Displays a h1 title.
 
     Args:
         text (str): Title text.
     """
     # center the title
-    st.markdown(f"<h1 style='text-align: center;'>{text}</h1>", unsafe_allow_html=True)
+    st.markdown(f"<h1 style='text-align: {align};'>{text}</h1>", unsafe_allow_html=True)
 
 
-def h2(text: str) -> None:
+def h2(text: str, align: str = "center") -> None:
     """Displays a h2 title.
 
     Args:
         text (str): Title text.
     """
-    st.markdown(f"<h2>{text}</h2>", unsafe_allow_html=True)
+    # center the title
+    st.markdown(f"<h2 style='text-align: {align};'>{text}</h2>", unsafe_allow_html=True)
 
 
-def h3(text: str) -> None:
+def h3(text: str, align: str = "center") -> None:
     """Displays a h3 title.
 
     Args:
         text (str): Title text.
     """
-    st.markdown(f"<h3 style='text-align: center;'>{text}</h3>", unsafe_allow_html=True)
+    # center the title
+    st.markdown(f"<h3 style='text-align: {align};'>{text}</h3>", unsafe_allow_html=True)
 
 
 def h4(text: str) -> None:

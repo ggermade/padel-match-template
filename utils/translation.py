@@ -1,5 +1,7 @@
 import streamlit as st
 
+from utils.fmt import h1, h2, h3
+
 
 class Translation:
     def __repr__(self) -> str:
@@ -37,6 +39,61 @@ class Translation:
 
         self.PAGE_ICON = "static/img/logo_avanza.webp"
 
+        # HOME
+        self.HOME = {"en": "Home", "es": "Inicio"}[self.lang]
+        self.HOME_TITLE = {"en": "Avanza Method: Post-Match Forms", "es": "Método Avanza: Cuestionarios Post-Partido"}[self.lang]
+        self.HOME_DESCRIPTION = {
+            "en": """
+                Welcome to the Avanza Method! This is a collection of forms (questionnaires) to help you improve your padel game through self-reflection from your matches. 
+                
+                Try to fill out the forms after each match, and you will see your game improve over time.
+
+                You can find the forms in the left sidebar (You can toggle it at the top left of the screen, or using the button down below). 
+                
+                Each questionnaire is oriented to a specific lesson, which you can find in [the Avanza Method Academy.](https://www.metodoavanza.com/library)
+
+                By filling out the post-match forms, you will be contributing to your own development as a player, and you will also be helping our coaches better understand your needs and personalize your training.
+
+                Additionally, you will soon be able to see your answers in a personalized dashboard, which will help you see your progress over time.
+
+                Thank you for your participation!
+
+                ♥ The Avanza Method Team
+            """,
+            "es": """
+                Bienvenidos al Método Avanza! Esta es una colección de cuestionarios para ayudarte a mejorar tu juego de pádel con la auto-reflexión sobre tus partidos. 
+                
+                Intenta llenar los cuestionarios después de cada partido, y verás cómo tu juego mejora con el tiempo.
+
+                Puedes encontrar los cuestionarios en la barra lateral izquierda. Puedes abrirla o cerrarla en la esquina superior izquierda de la pantalla, o usando el botón de abajo.
+                
+                Cada cuestionario está orientado a una lección específica, que puedes encontrar en la [Academia de Método Avanza.](https://www.metodoavanza.com/library)
+
+                Al llenar los cuestionarios, estarás contribuyendo a tu propio desarrollo como jugador, y también estarás ayudando a los entrenadores a entender mejor tus necesidades y a personalizar tu entrenamiento. 
+
+                Además, pronto podrás ver tus respuestas en un tablero de control personalizado, que te ayudará a ver tu progreso a lo largo del tiempo.
+
+                ¡Gracias por tu participación!
+
+                ♥ El Equipo de Método Avanza
+            """,
+        }[self.lang]
+
+        # PAGES
+        self.MENU = {"en": "Menu", "es": "Menú"}[self.lang]
+        self.LESSON_1_1_TITLE = {
+            "en": "1.1: Consistency",
+            "es": "1.1: La Consistencia",
+        }[self.lang]
+        self.LESSON_1_2_TITLE = {
+            "en": "1.2: The 5 Objectives of a Match",
+            "es": "1.2: Los 5 Objetivos de un Partido",
+        }[self.lang]
+        self.LESSON_1_3_TITLE = {
+            "en": "1.3: Easy or Difficult Balls in the Defense",
+            "es": "1.3: Bolas Fáciles o Difíciles en la Defensa",
+        }[self.lang]
+
         #### LOGIN ####
         self.LOGIN_TITLE = {"en": "Login", "es": "Inicio de Sesión"}[self.lang]
         self.USERNAME = {"en": "Username", "es": "Nombre de Usuario"}[self.lang]
@@ -51,8 +108,8 @@ class Translation:
         }[self.lang]
 
         self.QUESTIONNAIRE_TITLE = {
-            "en": "Post-Match Form",
-            "es": "Cuestionario Post-Partido",
+            "en": "Post-Match Total Self-Evaluation",
+            "es": "Auto-Evaluación Total Post-Partido",
         }[self.lang]
 
         self.SUBMIT_BUTTON = {"en": "Submit", "es": "Enviar"}[self.lang]
@@ -464,3 +521,83 @@ class Translation:
             "en": "Why do you think they won?",
             "es": "¿Por qué crees que han ganado?",
         }[self.lang]
+
+class Form:
+    def __repr__(self) -> str:
+        return f"Form({self.tl.lang})"
+
+    def __str__(self) -> str:
+        return f"Form({self.tl.lang})"
+
+    def __init__(self, tl: Translation) -> None:
+        self.tl = tl
+
+        # This should be implemented in the child class
+        self.title: str = ""
+
+        self.subtitle = {
+            "en": "Post-Match Evaluation",
+            "es": "Evaluación Post-Partido",
+        }[self.tl.lang]
+
+        self.common_questions_subheader = {
+            "en": "Tell us how you felt today.",
+            "es": "Cuéntanos cómo has estado hoy.",
+        }[self.tl.lang]
+
+        self.specific_questions_subheader = {
+            "en": "Questions about the lesson's objectives",
+            "es": "Preguntas sobre los objetivos de la lección",
+        }[self.tl.lang]
+
+        self.set_common_questions()
+
+    def set_common_questions(self):
+        self.COMMON_1 = {
+            "en": "How did you feel when striking? How was your touch, wrist action, etc…?",
+            "es": "¿Qué sensaciones has sentido al golpear? ¿Cómo sentiste tu toque, mano, etc…?",
+        }[self.tl.lang]
+
+        self.COMMON_2 = {
+            "en": "How was your attention and concentration during the match?",
+            "es": "¿Cómo has estado de atención y concentración durante el partido?",
+        }[self.tl.lang]
+
+        self.COMMON_3 = {
+            "en": "How did you feel physically?",
+            "es": "¿Cómo te has sentido físicamente?",
+        }[self.tl.lang]
+
+        self.COMMON_4 = {
+            "en": "How was your attitude and mindset during the match?",
+            "es": "¿Cómo ha sido tu actitud y mentalidad durante el partido?",
+        }[self.tl.lang]
+
+    def render_specific_questions(self):
+        raise NotImplementedError("You must implement this method in the child class")
+
+    def render_common_questions(self):
+        st.write(self.COMMON_1)
+        st.text_area("", key="common_1", height=0, max_chars=1000, value="", label_visibility="collapsed")
+        st.write(self.COMMON_2)
+        st.radio("", ["Yes", "No"], key="common_2", horizontal=True, label_visibility="collapsed")
+        st.write(self.COMMON_3)
+        st.radio("", ["Yes", "No"], key="common_3", horizontal=True, label_visibility="collapsed")
+        st.write(self.COMMON_4)
+        st.radio("", ["Yes", "No"], key="common_4", horizontal=True, label_visibility="collapsed")
+
+    def render(self):
+        h1(self.title) # From the child class
+        h2(self.subtitle)
+        with st.form(key="post_match_form"):
+            h3(self.specific_questions_subheader)
+            self.render_specific_questions()
+            h3(self.common_questions_subheader)
+            self.render_common_questions()
+            st.form_submit_button(self.tl.SUBMIT_BUTTON)
+        
+
+
+    
+
+
