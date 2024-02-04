@@ -53,6 +53,14 @@ def h5(text: str) -> None:
     """
     st.markdown(f"<h5>{text}</h5>", unsafe_allow_html=True)
 
+def h6(text: str) -> None:
+    """Displays a h6 title.
+
+    Args:
+        text (str): Title text.
+    """
+    st.markdown(f"<h6>{text}</h6>", unsafe_allow_html=True)
+
 
 def span(text: str) -> None:
     """Displays a span.

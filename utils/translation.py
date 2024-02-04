@@ -1,6 +1,8 @@
+import time
+
 import streamlit as st
 
-from utils.fmt import h1, h2, h3
+from utils.fmt import br, h1, h2, h3, h6, hr
 
 
 class Translation:
@@ -80,6 +82,11 @@ class Translation:
         }[self.lang]
 
         # PAGES
+        self.NAVIGATION = {"en": "Navigation", "es": "Navegación"}[self.lang]
+        self.NAV_FORMS = {"en": "Lesson Forms", "es": "Cuestionarios por Lección"}[self.lang]
+        self.NAV_BIG_FORM = {"en": "Post-Match Self-Evaluation", "es": "Auto-Evaluación Post-Partido"}[self.lang]
+        self.NAV_HISTORY = {"en": "History", "es": "Histórico"}[self.lang]
+        self.NAV_ANALYTICS = {"en": "Analytics", "es": "Analítica"}[self.lang]
         self.MENU = {"en": "Menu", "es": "Menú"}[self.lang]
         self.LESSON_1_1_TITLE = {
             "en": "1.1: Consistency",
@@ -92,6 +99,66 @@ class Translation:
         self.LESSON_1_3_TITLE = {
             "en": "1.3: Easy or Difficult Balls in the Defense",
             "es": "1.3: Bolas Fáciles o Difíciles en la Defensa",
+        }[self.lang]
+        self.LESSON_2_1_TITLE = {
+            "en": "2.1: Time Management in the Defense",
+            "es": "2.1: Manejar los Tiempos en la Defensa",
+        }[self.lang]
+        self.LESSON_2_2_TITLE = {
+            "en": "2.2: Generating Space",
+            "es": "2.2: Generar Espacios",
+        }[self.lang]
+        self.LESSON_2_3_TITLE = {
+            "en": "2.3: Using Deception in the Defense",
+            "es": "2.3: Jugar al Engaño en la Defensa",
+        }[self.lang]
+        self.LESSON_2_4_TITLE = {
+            "en": "2.4: Targetting Uncomfortable Areas",
+            "es": "2.4: Las Zonas más Incómodas para el Rival",
+        }[self.lang]
+        self.LESSON_3_1_TITLE = {
+            "en": "3.1: The Best Defense is a Good Offense",
+            "es": "3.1: La Mejor Defensa es un Buen Ataque",
+        }[self.lang]
+        self.LESSON_3_2_TITLE = {
+            "en": "3.2: Winning the Net",
+            "es": "3.2: Ganar la Red",
+        }[self.lang]
+        self.LESSON_3_3_TITLE = {
+            "en": "3.3: Net Positioning with my Partner",
+            "es": "3.3: Posición con mi Compañero en la Red",
+        }[self.lang]
+        self.LESSON_4_1_TITLE = {
+            "en": "4.1: Staying at the Net",
+            "es": "4.1: Mantenerse en la Red",
+        }[self.lang]
+        self.LESSON_4_2_TITLE = {
+            "en": "4.2: Attacking Uncomfortable Areas from the Net",
+            "es": "4.2: Atacando las Zonas Incómodas desde la Red",
+        }[self.lang]
+        self.LESSON_4_3_TITLE = {
+            "en": "4.3: Volleying According to Ball Type",
+            "es": "4.3: Qué volea hacer según la bola que viene",
+        }[self.lang]
+        self.LESSON_5_1_TITLE = {
+            "en": "5.1: Using Deception in the Attack Zone",
+            "es": "5.1: Jugar al Engaño en la Zona de Ataque",
+        }[self.lang]
+        self.LESSON_5_2_TITLE = {
+            "en": "5.2: What to Do with a Difficult Ball",
+            "es": "5.2: Qué Hacer con una Bola Difícil",
+        }[self.lang]
+        self.LESSON_5_3_TITLE = {
+            "en": "5.3: Is it Good to Volley to the Center?",
+            "es": "5.3: ¿Es bueno Volear al Centro?",
+        }[self.lang]
+        self.LESSON_6_1_TITLE = {
+            "en": "6.1: The Serve",
+            "es": "6.1: El Saque o Servicio",
+        }[self.lang]
+        self.LESSON_6_2_TITLE = {
+            "en": "6.2: The Return of Serve",
+            "es": "6.2: El Resto o Devolución de Saque",
         }[self.lang]
 
         #### LOGIN ####
@@ -550,6 +617,17 @@ class Form:
             "es": "Preguntas sobre los objetivos de la lección",
         }[self.tl.lang]
 
+        self.toast_loading_message = {
+            "en": "Submitting...",
+            "es": "Enviando...",
+        }[self.tl.lang]
+        
+        self.toast_success_message = {
+            "en": "Submitted!",
+            "es": "¡Enviado!",
+        }[self.tl.lang]
+
+
         self.set_common_questions()
 
     def set_common_questions(self):
@@ -563,9 +641,19 @@ class Form:
             "es": "¿Cómo has estado de atención y concentración durante el partido?",
         }[self.tl.lang]
 
+        self.COMMON_2_OPTIONS = {
+            "en": ["Good", "Mostly good, but some lapses in concentration", "Neutral", "Mostly bad, but some moments of good focus", "Bad"],
+            "es": ["Bien", "Mayormente bien, pero con algunos despistes", "Neutral", "Mayormente mal, pero con algunos momentos de buena concentración", "Mal"],
+        }[self.tl.lang]
+
         self.COMMON_3 = {
             "en": "How did you feel physically?",
             "es": "¿Cómo te has sentido físicamente?",
+        }[self.tl.lang]
+
+        self.COMMON_3_OPTIONS = {
+            "en": ["Very good, with a lot of energy", "Good", "Neutral", "Bad", "Very bad, without energy and/or with physical discomfort"],
+            "es": ["Muy bien, con mucha energía", "Bien", "Neutral", "Mal", "Muy mal, sin energía y/o con molestias físicas"]
         }[self.tl.lang]
 
         self.COMMON_4 = {
@@ -573,29 +661,40 @@ class Form:
             "es": "¿Cómo ha sido tu actitud y mentalidad durante el partido?",
         }[self.tl.lang]
 
+        self.COMMON_4_OPTIONS = {
+            "en": ["Positive, encouraging my partner", "Positive", "Neutral", "Negative", "Very Negative, discouraging my partner"],
+            "es": ["Muy Positiva, animando al compañero", "Positiva", "Neutral", "Negativa", "Muy Negativa, desanimando al compañero"],
+        }[self.tl.lang]
+
     def render_specific_questions(self):
         raise NotImplementedError("You must implement this method in the child class")
 
     def render_common_questions(self):
-        st.write(self.COMMON_1)
+        h6(self.COMMON_1)
         st.text_area("", key="common_1", height=0, max_chars=1000, value="", label_visibility="collapsed")
-        st.write(self.COMMON_2)
-        st.radio("", ["Yes", "No"], key="common_2", horizontal=True, label_visibility="collapsed")
-        st.write(self.COMMON_3)
-        st.radio("", ["Yes", "No"], key="common_3", horizontal=True, label_visibility="collapsed")
-        st.write(self.COMMON_4)
-        st.radio("", ["Yes", "No"], key="common_4", horizontal=True, label_visibility="collapsed")
+        h6(self.COMMON_2)
+        st.radio("", self.COMMON_2_OPTIONS, key="common_2", horizontal=False, label_visibility="collapsed")
+        h6(self.COMMON_3)
+        st.radio("", self.COMMON_3_OPTIONS, key="common_3", horizontal=False, label_visibility="collapsed")
+        h6(self.COMMON_4)
+        st.radio("", self.COMMON_4_OPTIONS, key="common_4", horizontal=False, label_visibility="collapsed")
 
     def render(self):
         h1(self.title) # From the child class
         h2(self.subtitle)
+        br()
         with st.form(key="post_match_form"):
             h3(self.specific_questions_subheader)
+            br()
             self.render_specific_questions()
+            hr()
             h3(self.common_questions_subheader)
+            br()
             self.render_common_questions()
-            st.form_submit_button(self.tl.SUBMIT_BUTTON)
-        
+            if st.form_submit_button(self.tl.SUBMIT_BUTTON):
+                st.toast(self.toast_loading_message, icon="🚀")
+                time.sleep(1.5)
+                st.toast(self.toast_success_message, icon="🎉")
 
 
     
